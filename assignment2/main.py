@@ -73,15 +73,17 @@ def atm():
     r_amt = 0
     while(t_balance != 0 and t_balance > 0):
         r_amt = int(input("Enter the amount required: "))
+        if(t_balance < 1000):
+            print("low balance")
         t_balance -= r_amt
-    if(r_amt > balance):
+    if(r_amt > t_balance):
         print("Insufficient Balance")
 
 #6)Pyramid
 
 def pattern():
     n = int(input("Enter n value"))
-    for i in range(1,n):
+    for i in range(n,0,-1):
         for j in range(1,i+1):
             print(j,end=" ")
         print("")

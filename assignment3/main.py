@@ -50,8 +50,8 @@ def shop():
     li = []
     while (True):
         print("-------------------------------------------------------")
-        user_input = int(input("Enter your choice\n1.Add item\n2.Remove item\n3.View item\n4.Exit\n"))
-        if(user_input == 4):
+        user_input = int(input("Enter your choice\n1.Add item\n2.Remove item\n3.View item\n4.Edit\n5.Exit\n"))
+        if(user_input == 5):
             break
         elif(user_input == 1):
             item = input("Enter the item name: ")
@@ -67,6 +67,11 @@ def shop():
         elif(user_input == 3):
             for i in li:
                 print(f">>>{i}")
+        elif (user_input == 4):
+            testToReplace = input("Enter the old text: ")
+            newChange = input("Enter the item name to be replaced: ")
+            idx = li.index(testToReplace)
+            li[idx] = newChange
 
 #5)Largest and smalest number
 
@@ -218,3 +223,4 @@ def track():
     print("Unique students: ",len(s))
     print("Present: ",s)
 
+shop()

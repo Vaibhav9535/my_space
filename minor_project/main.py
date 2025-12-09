@@ -26,7 +26,12 @@ def display():
 def new_student():
     roll_no_start = list(students.keys()).pop() + 1
     print("Enter the name of the new student")
-    new_student_name = input()
+    while True:
+        new_student_name = input()
+        if any(ch.isdigit() for ch in new_student_name):
+            print("Try again!!!!")
+        else:
+            break    
     new_student_courses = list()
     display()
     num_of_courses = 0
@@ -63,13 +68,26 @@ def student_summary():
         print(f"Courses: {', '.join(details["courses"])}")
         print(f"Attendence: {details["attendence"]}")
 
+def edit():
+    ID = int(input("Enter the ID of the student: "))
+    print("name :- ",students[ID]["name"])
+    print("Current courses :-",students[ID]["courses"])
+    oldCourse = input("Enter the old course to be changed: ")
+    newCourse = input("Enter the new course: ")
+
+    idx = students[ID]["courses"].index(oldCourse)
+
+    students[ID]["courses"][idx] = newCourse
+
+
 def menu():
     print(".............MENU.............")
     print("1) Display courses and their codes")
     print("2) Register a new student")
     print("3) Mark attendence")
     print("4) Students summary")
-    print("5) Exit")
+    print("5) Edit course")
+    print("6) Exit")
 
 menu()
 
@@ -91,4 +109,7 @@ while(True):
         student_summary()
         print()
     elif n == 5:
+        edit()
+        print()
+    elif n == 6:
         break
