@@ -1,1 +1,1 @@
-Trying to learn git and github
+Assignments record for pps lab
